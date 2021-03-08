@@ -1,29 +1,56 @@
+
 .addTodoSection {
-  display: flex;
-  flex-direction: row nowrap;
-  justify-content: center;
-  align-items: center;
   position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
 
   .inputConatiner {
     position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
   }
 
   .inputField {
-    padding: 5px;
+    padding: 3px;
+    border: 1px solid transparent;
+    border-bottom-color: #000;
+    transition: 300ms ease-in-out;
+    margin: 3px;
+    width: 100%;
   }
+
+  .inputField:focus {
+    outline: none;
+    border: 1.5px solid transparent;
+    border-bottom-color: #000;
+    padding: 10px;
+  }
+
+  .inputField:focus + .todoLabel {
+    color: blue;
+  }
+
   .todoLabel {
     position: absolute;
-    transition: 300ms ease-in;
-    color: green;
     font-size: 12px;
-    top: 25%;
-    left: 44%;
+    top: -5px;
+    left: 69%;
+    transition: 300ms ease-in-out;
   }
-  .inputField:focus + label {
-    color: green;
-    font-size: 12px;
-    top: -12px;
-    left: 43.5%;
+
+  .btn {
+    background: blue;
+    color: #fff;
+    padding: 3px;
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 700;
   }
 }
