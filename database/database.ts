@@ -7,7 +7,7 @@ import {Pool} from "pg";
 let database;
 
 if (process.env.NODE_ENV === "production") {
-  database = new Pool({connectionString: "Connection String"});
+  database = new Pool({connectionString: process.env.DATABASE_URL});
 } else {
   database = new Pool({
     user: process.env.PG_USERNAME,
