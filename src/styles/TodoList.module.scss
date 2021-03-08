@@ -1,0 +1,17 @@
+.listContainer {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+  h4 {
+    color: tomato;
+  }
+
+  li {
+    text-decoration: dotted;
+    color: black;
+    font-weight: 300;
+    list-style-type: decimal;
+  }
+}
