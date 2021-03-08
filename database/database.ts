@@ -2,14 +2,19 @@ import * as dotenv from "dotenv";
 
 dotenv.config({path: __dirname + "../.env"});
 
-import {Pool} from "pg";
+import {Client} from "pg";
 
 let database;
 
 if (process.env.NODE_ENV === "production") {
-  database = new Pool({connectionString: process.env.DATABASE_URL});
+  database = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false
+    }
+  });
 } else {
-  database = new Pool({
+  database = new Client({
     user: process.env.PG_USERNAME,
     password: process.env.PG_PASSWORD,
     host: process.env.PG_HOST,
@@ -17,8 +22,6 @@ if (process.env.NODE_ENV === "production") {
     port: Number(process.env.PG_PORT),
   });
 }
-
-
 
 database.connect();
 
