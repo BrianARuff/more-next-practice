@@ -1,4 +1,4 @@
-import database from '../../../../database/database.ts';
+import database from '../../../../database/database';
 
 export default (req, res) => {
   database.query(`SELECT * FROM todos; --`)
